@@ -1,22 +1,15 @@
 package roulette.game.dto;
-
-import org.springframework.web.bind.annotation.RestController;
-
-public class GenericValue<T> {
+public class GenericWrapper<T> {
     private T value;
-
-    public GenericValue() {
+    public GenericWrapper() {
         super();
     }
-
-    public GenericValue(T value) {
+    public GenericWrapper(T value) {
         this.value = value;
     }
-
     public T getValue() {
         return value;
     }
-
     public void setValue(T value) {
         this.value = value;
     }
