@@ -10,8 +10,13 @@ import org.springframework.data.redis.core.ReactiveValueOperations;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.web.reactive.config.EnableWebFlux;
+import org.springframework.web.reactive.function.server.ServerRequest;
+import org.springframework.web.reactive.function.server.ServerResponse;
+import reactor.core.publisher.Mono;
 import roulette.game.model.Roulette;
 @Configuration
+@EnableWebFlux
 public class RouletteAppConfig {
     @Bean
     public ReactiveRedisTemplate<String, Roulette> reactiveRedisTemplate(ReactiveRedisConnectionFactory factory) {
