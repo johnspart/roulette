@@ -20,7 +20,6 @@ public class BetService {
     public BetService(ReactiveValueOperations<String, Roulette> rouletteValueOps) {
         this.rouletteValueOps = rouletteValueOps;
     }
-    //TODO: pendiente la validación de que el cliente tenga saldo
     public Mono<GenericWrapper<OperationStatus>> makeBet(BetDTO bet) {
         return Mono.deferContextual(ctx -> {
             bet.setUserId(ctx.get(OperationalConstant.USER_ID));

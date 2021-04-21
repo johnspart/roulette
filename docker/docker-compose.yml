@@ -1,0 +1,19 @@
+version: "3.6"
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - ".:/mnt/ddev_config"
+      - "./redis:/usr/local/etc/redis"
+    command: [ "redis-server", "--bind", "redis", "--port", "6379" ]
+  roulette-app:
+    image: roulette-app:1.0
+    container_name: roulette-app
+    environment:
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+    ports:
+      - ${ROULETTE_APP_PORT}:${ROULETTE_APP_PORT}
