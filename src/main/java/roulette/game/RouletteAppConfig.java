@@ -1,8 +1,10 @@
 package roulette.game;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+import org.springframework.data.redis.core.ReactiveListOperations;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.data.redis.core.ReactiveValueOperations;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
@@ -21,12 +23,13 @@ public class RouletteAppConfig {
         return new ReactiveRedisTemplate<>(factory, context);
     }
     @Bean
-    public ReactiveValueOperations<String, Roulette> reactiveRedisTemplate(ReactiveRedisTemplate<String, Roulette> factory) {
+    public ReactiveValueOperations<String, Roulette> reactiveRedisOpsForValue(ReactiveRedisTemplate<String, Roulette> factory) {
         return factory.opsForValue();
     }
     //TODO:
     @Bean
+    @Primary
     public ReactiveRedisConnectionFactory reactiveRedisConnectionFactory() {
-        return new LettuceConnectionFactory("", 123);
+        return new LettuceConnectionFactory("localhost", 49153);
     }
 }

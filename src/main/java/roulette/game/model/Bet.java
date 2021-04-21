@@ -1,24 +1,18 @@
-package roulette.game.dto;
+package roulette.game.model;
 import roulette.game.constant.Color;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
-public class BetDTO {
-    private String rouletteId;
-    private String userId;
+public class Bet implements Serializable {
+    private String user;
     private Integer number;
     private Color color;
     private BigDecimal betValue;
-    public String getRouletteId() {
-        return rouletteId;
+    public String getUser() {
+        return user;
     }
-    public void setRouletteId(String rouletteId) {
-        this.rouletteId = rouletteId;
-    }
-    public String getUserId() {
-        return userId;
-    }
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(String user) {
+        this.user = user;
     }
     public Integer getNumber() {
         return number;

@@ -1,0 +1,11 @@
+version: "3.6"
+services:
+  redis:
+    image: redis:latest
+    container_name: dev-redis
+    ports:
+      - 6379:6379
+    volumes:
+      - ".:/mnt/ddev_config"
+      - "./redis:/usr/local/etc/redis"
+    command: [ "redis-server", "--bind", "redis", "--port", "6379" ]

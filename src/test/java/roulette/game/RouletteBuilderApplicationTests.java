@@ -3,10 +3,10 @@ package roulette.game;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class RouletteBuilderApplicationTests {
 
-	@Test
+//	@Test
 	void contextLoads() {
 	}
 
